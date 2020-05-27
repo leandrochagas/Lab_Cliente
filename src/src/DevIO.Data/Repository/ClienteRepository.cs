@@ -19,14 +19,6 @@ namespace DevIO.Data.Repository
                 .Include(c => c.Endereco)
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
-
-        public async Task<Cliente> ObterClienteProdutosEndereco(Guid id)
-        {
-            return await Db.Clientes.AsNoTracking()                
-                .Include(c => c.Endereco)
-                .FirstOrDefaultAsync(c => c.Id == id);
-        }
-
         
     }
 }

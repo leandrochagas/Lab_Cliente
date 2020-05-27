@@ -14,19 +14,13 @@ namespace DevIO.Api.Configuration
     public static class DependencyInjectionConfig
     {
         public static IServiceCollection ResolveDependencies(this IServiceCollection services)
-        {
-            //services.AddScoped<MeuDbContext>();
-            //services.AddScoped<IClienteRepository, ClienteRepository>();
-            //services.AddScoped<IClienteService, ClienteService>();
-
-
+        {           
             services.AddScoped<MeuDbContext>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 
             services.AddScoped<INotificador, Notificador>();
             services.AddScoped<IClienteService, ClienteService>();
-
 
             return services;
 

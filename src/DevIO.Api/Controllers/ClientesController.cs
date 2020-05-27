@@ -111,12 +111,5 @@ namespace DevIO.Api.Controllers
             return CustomResponse(clienteViewModel);
         }
         #endregion
-
-
-
-        //public async Task<ClienteViewModel> ObterClienteEndereco(Guid id)
-        //{
-        //    return _mapper.Map<ClienteViewModel>(await _clienteRepository.ObterClienteEndereco(id));
-        //}
     }
 }

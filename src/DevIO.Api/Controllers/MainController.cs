@@ -40,17 +40,27 @@ namespace DevIO.Api.Controllers
             if (!modelstate.IsValid) NotificarErroModelInvalida(modelstate);
             return CustomResponse();
         }
-
-
         protected void NotificarErroModelInvalida(ModelStateDictionary modelState)
         {
             var erros = modelState.Values.SelectMany(e => e.Errors);
             foreach (var erro in erros)
             {
-                var errorMsg = erro.Exception == null ? erro.ErrorMessage : erro.Exception.Message;
-                NotificarErro(errorMsg);
+
+                if (erro.ErrorMessage.Contains("The JSON value could not be converted to System.DateTime"))
+                {
+                    var errorMsgData = "Data inválida ou ausente ";
+                    NotificarErro(errorMsgData);
+                }
+                else
+                {
+                    var errorMsg = erro.Exception == null ? erro.ErrorMessage : erro.Exception.Message;
+                    NotificarErro(errorMsg);
+                }
+
             }
         }
+
+        
         protected void NotificarErro(string mensage)
         {
             _notificador.Handle(new Notificacao(mensage));

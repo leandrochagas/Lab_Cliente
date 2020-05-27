@@ -36,15 +36,6 @@ namespace DevIO.Api.Configuration
 
             });
 
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("Development",
-            //        builder => builder.AllowAnyOrigin()
-            //            .AllowAnyMethod()
-            //            .AllowAnyHeader()
-            //            .AllowCredentials());
-            //});
-
             return services;
         }
 
@@ -52,7 +43,6 @@ namespace DevIO.Api.Configuration
         {
             app.UseHttpsRedirection();
             app.UseCors("Development");
-            //app.UseMvc();
 
             return app;
         }
